@@ -1,8 +1,10 @@
 class Disjoint {
+    public:
+    
     vector<int> size;
     vector<int> parent;
 
-public:
+
     Disjoint(int n) {
         size.resize(n, 1);
         parent.resize(n);
@@ -21,16 +23,19 @@ public:
         int u_par = findParent(u);
         int v_par = findParent(v);
 
-        if(u_par != v_par) {
+        if(u_par != v_par) 
+        {
             if(size[u_par] > size[v_par]) {
                 parent[v_par] = u_par;
             } else {
                 parent[u_par] = v_par;
             }
-        }
-        
+            
          int total = size[u_par] + size[v_par]; 
          size[u_par] = total ;
          size[v_par] = total;
+        }
+        
+         
     }
 };
